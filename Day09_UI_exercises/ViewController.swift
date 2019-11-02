@@ -10,10 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let square = SquareBrick(CGRect(x: 100, y: 100, width: 100, height: 100))
-    let square2 = SquareBrick(CGRect(x: 100, y: 200, width: 100, height: 100))
-    let square3 = SquareBrick(CGRect(x: 100, y: 300, width: 100, height: 100))
-    let square4 = SquareBrick(CGRect(x: 200, y: 300, width: 100, height: 100))
+    let square = SquareBrick(CGRect(x: 100, y: 200, width: 50, height: 50))
+    let square2 = SquareBrick(CGRect(x: 150, y: 200, width: 50, height: 50))
+    let square3 = SquareBrick(CGRect(x: 200, y: 200, width: 50, height: 50))
+    let square4 = SquareBrick(CGRect(x: 200, y: 250, width: 50, height: 50))
     
     override func viewDidLoad() {
         super.viewDidLoad()

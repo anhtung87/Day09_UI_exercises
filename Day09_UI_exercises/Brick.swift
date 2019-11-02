@@ -22,7 +22,7 @@ class SquareBrick: NSObject {
     
     func configUIView(_ rect: CGRect) {
         view.frame = rect
-        distance = rect.width / 10
+        distance = rect.width / 100 * 15
         width = rect.width
         view.backgroundColor = UIColor(red:1.00, green:0.75, blue:0.00, alpha:1.0)
     }
