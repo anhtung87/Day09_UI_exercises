@@ -13,10 +13,12 @@ class SquareBrick: NSObject {
     var distance: CGFloat = 0
     var width: CGFloat = 0
     var view: UIView = UIView()
+    var color: UIColor = UIColor.systemRed
     
-    init(x: Float, y: Float, width: Float) {
+    init(x: Float, y: Float, width: Float, color: UIColor) {
         super.init()
         self.width = CGFloat(width)
+        self.color = color
         self.configUIView(x: x, y: y, width: width)
         self.addSubLayer()
     }
@@ -24,24 +26,28 @@ class SquareBrick: NSObject {
     func configUIView(x: Float, y: Float, width: Float) {
         view.frame = CGRect(x: CGFloat(x), y: CGFloat(y), width: CGFloat(width), height: CGFloat(width))
         distance = CGFloat(width) / 100 * 15
-        view.backgroundColor = UIColor(red:1.00, green:0.75, blue:0.00, alpha:1.0)
+        view.backgroundColor = self.color
     }
     
     func addSubLayer(){
         let topLayer = drawLayer(CGPoint(x: 0, y: 0), CGPoint(x: width, y: 0), CGPoint(x: width - distance, y: distance), CGPoint(x: distance, y: distance))
-        topLayer.fillColor = UIColor(red:1.00, green:0.82, blue:0.30, alpha:1.0).cgColor
+        topLayer.fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        topLayer.opacity = 0.4
         view.layer.addSublayer(topLayer)
         
         let rightLayer = drawLayer(CGPoint(x: width, y: 0), CGPoint(x: width, y: width), CGPoint(x: width - distance, y: width - distance), CGPoint(x: width - distance, y: distance))
-        rightLayer.fillColor = UIColor(red:0.80, green:0.60, blue:0.00, alpha:1.0).cgColor
+        rightLayer.fillColor = UIColor(red: 0, green: 0, blue: 0, alpha:1.0).cgColor
+        rightLayer.opacity = 0.6
         view.layer.addSublayer(rightLayer)
         
         let bottomLayer = drawLayer(CGPoint(x: distance, y: width - distance), CGPoint(x: width - distance, y: width - distance), CGPoint(x: width, y: width), CGPoint(x: 0, y: width))
-        bottomLayer.fillColor = UIColor(red:0.90, green:0.67, blue:0.00, alpha:1.0).cgColor
+        bottomLayer.fillColor = UIColor(red: 0, green: 0, blue: 0, alpha:1.0).cgColor
+        bottomLayer.opacity = 0.4
         view.layer.addSublayer(bottomLayer)
         
         let leftLayer = drawLayer(CGPoint(x: 0, y: 0), CGPoint(x: distance, y: distance), CGPoint(x: distance, y: width - distance), CGPoint(x: 0, y: width))
-        leftLayer.fillColor = UIColor(red:1.00, green:0.87, blue:0.50, alpha:1.0).cgColor
+        leftLayer.fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        leftLayer.opacity = 0.6
         view.layer.addSublayer(leftLayer)
     }
     

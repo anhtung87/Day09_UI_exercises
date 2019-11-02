@@ -10,18 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let square = SquareBrick(x: 50, y: 300, width: 100)
-    let square2 = SquareBrick(x: 50, y: 400, width: 100)
-    let square3 = SquareBrick(x: 50, y: 500, width: 100)
-    let square4 = SquareBrick(x: 150, y: 400, width: 100)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(square.view)
-        view.addSubview(square2.view)
-        view.addSubview(square3.view)
-        view.addSubview(square4.view)
+        let colors = [
+            UIColor.systemBlue,
+            UIColor.systemRed,
+            UIColor.systemYellow,
+            UIColor.systemGreen,
+            UIColor.systemPurple,
+            UIColor.systemPink,
+            UIColor.systemIndigo,
+            UIColor.systemOrange,
+            UIColor.systemTeal]
+        var existedColors = colors
+        let width: Float = 100.0
+        for line in 1...3 {
+            let y: Float = 50.0 + Float(line) * width
+            for index in 1...3 {
+                let x: Float = -50.0 + Float(index) * width
+                let pickedColor = existedColors.randomElement()!
+                existedColors = existedColors.filter { $0 != pickedColor }
+                let square = SquareBrick(x: x, y: y, width: width, color: pickedColor)
+                view.addSubview(square.view)
+            }
+        }
     }
 }
 
