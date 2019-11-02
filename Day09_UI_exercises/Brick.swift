@@ -14,16 +14,16 @@ class SquareBrick: NSObject {
     var width: CGFloat = 0
     var view: UIView = UIView()
     
-    init(_ rect: CGRect) {
+    init(x: Float, y: Float, width: Float) {
         super.init()
-        self.configUIView(rect)
+        self.width = CGFloat(width)
+        self.configUIView(x: x, y: y, width: width)
         self.addSubLayer()
     }
     
-    func configUIView(_ rect: CGRect) {
-        view.frame = rect
-        distance = rect.width / 100 * 15
-        width = rect.width
+    func configUIView(x: Float, y: Float, width: Float) {
+        view.frame = CGRect(x: CGFloat(x), y: CGFloat(y), width: CGFloat(width), height: CGFloat(width))
+        distance = CGFloat(width) / 100 * 15
         view.backgroundColor = UIColor(red:1.00, green:0.75, blue:0.00, alpha:1.0)
     }
     
